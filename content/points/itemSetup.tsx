@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const ItemSetup = () => {
-  return (
-    <div>Item Setup</div>
-  )
-}
+  return <div>Item Setup</div>;
+};
 
-export default ItemSetup
+export default ItemSetup;

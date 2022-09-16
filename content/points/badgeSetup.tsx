@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const BadgeSetup = () => {
-  return (
-    <div>Badge Setup</div>
-  )
-}
+  return <div>Badge Setup</div>;
+};
 
-export default BadgeSetup
+export default BadgeSetup;
