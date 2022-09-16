@@ -13,9 +13,9 @@ const Points = () => {
         <Tabs
           tabHeader={['Points Overview', 'Points Item Setup', 'Badge Setup']}
           tabs={[
-            <Overview key="overview" />,
-            <ItemSetup key="item-setup" />,
-            <BadgeSetup key="badge-setup" />,
+            <Overview key='overview' />,
+            <ItemSetup key='item-setup' />,
+            <BadgeSetup key='badge-setup' />,
           ]}
         />
       </Page>

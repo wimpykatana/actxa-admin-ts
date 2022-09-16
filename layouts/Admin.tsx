@@ -8,9 +8,9 @@ interface Props {
 
 const Admin = ({ children }: Props) => {
   return (
-    <div className="h-screen" style={{ overflow: 'hidden' }}>
+    <div className='h-screen' style={{ overflow: 'hidden' }}>
       <Header />
-      <div className="flex">
+      <div className='flex'>
         <Sidebar />
         {children}
       </div>
