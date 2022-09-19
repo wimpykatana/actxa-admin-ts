@@ -18,9 +18,8 @@ const Tabs = ({ tabHeader, tabs }: Props) => {
           {tabHeader?.map((val, i) => (
             <div
               key={i}
-              className={`p-2 md:px-11 md:py-3 cursor-pointer ${
-                activeTab === i ? 'bg-[#002245] text-white rounded-t-md' : ''
-              }`}
+              className={`p-2 md:px-11 md:py-3 cursor-pointer
+              ${activeTab === i ? 'bg-[#002245] text-white rounded-t-md' : ''}`}
               onClick={() => setActiveTab(i)}
             >
               {val}

@@ -8,16 +8,41 @@ import { FaRegHandshake } from 'react-icons/fa';
 import { VscGear } from 'react-icons/vsc';
 
 const menuLinks = [
-  { id: 1, name: 'Dashboard' },
-  { id: 2, name: 'Clients' },
-  { id: 3, name: 'Programme Modules' },
-  { id: 4, name: 'Activities' },
-  { id: 5, name: 'Tips & Articles' },
-  { id: 6, name: 'Points' },
-  { id: 7, name: 'Coins' },
-  { id: 8, name: 'Partners' },
-  { id: 9, name: 'Notifications' },
-  { id: 10, name: 'Account Administration' },
+  { id: 1, name: 'Dashboard', icon: <TbLayoutDashboard /> },
+  { id: 2, name: 'Clients', icon: <HiOutlineUsers /> },
+  { id: 3, name: 'Programme Modules', icon: <HiOutlinePencilAlt /> },
+  { id: 4, name: 'Activities', icon: <FiFileText /> },
+  { id: 5, name: 'Tips & Articles', icon: <BsWindowSidebar /> },
+  { id: 6, name: 'Points', icon: <BsStars /> },
+  { id: 7, name: 'Coins', icon: <RiCoinsLine /> },
+  { id: 8, name: 'Partners', icon: <FaRegHandshake /> },
+  { id: 9, name: 'Notifications', icon: <TbBellRinging2 /> },
+  { id: 10, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 11, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 12, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 13, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 14, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 15, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 16, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 17, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 18, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 19, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 20, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 21, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 22, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 23, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 24, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 25, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 26, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 27, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 28, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 29, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 30, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 31, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 32, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 33, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 34, name: 'Account Administration', icon: <VscGear /> },
+  // { id: 35, name: 'Account Administration', icon: <VscGear /> },
 ];
 
 export const Logout = () => {
@@ -34,76 +59,13 @@ export const Logout = () => {
 const Sidebar = () => {
   return (
     <div className='hidden h-screen overflow-y-scroll scrollbar-hide bg-[#002245] text-white pl-10 pt-5 pb-[120px] md:block md:w-3/12'>
+      {menuLinks.map((item) => (
+        <div key={item.id} className='mb-10 flex items-center'>
+          <div className='mr-3'>{item.icon}</div>
+          <div>{item.name}</div>
+        </div>
+      ))}
       <Logout />
-      <div className='mb-10 flex items-center'>
-        <div className='mr-3'>
-          <TbLayoutDashboard />
-        </div>
-        <div>{menuLinks[0].name}</div>
-      </div>
-
-      <div className='mb-10 flex items-center'>
-        <div className='mr-3'>
-          <HiOutlineUsers />
-        </div>
-        <div>{menuLinks[1].name}</div>
-      </div>
-
-      <div className='mb-10 flex items-center'>
-        <div className='mr-3'>
-          <HiOutlinePencilAlt />
-        </div>
-        <div>{menuLinks[2].name}</div>
-      </div>
-
-      <div className='mb-10 flex items-center'>
-        <div className='mr-3'>
-          <FiFileText />
-        </div>
-        <div>{menuLinks[3].name}</div>
-      </div>
-
-      <div className='mb-10 flex items-center'>
-        <div className='mr-3'>
-          <BsWindowSidebar />
-        </div>
-        <div>{menuLinks[4].name}</div>
-      </div>
-
-      <div className='mb-10 flex items-center'>
-        <div className='mr-3'>
-          <BsStars />
-        </div>
-        <div>{menuLinks[5].name}</div>
-      </div>
-
-      <div className='mb-10 flex items-center'>
-        <div className='mr-3'>
-          <RiCoinsLine />
-        </div>
-        <div>{menuLinks[6].name}</div>
-      </div>
-
-      <div className='mb-10 flex items-center'>
-        <div className='mr-3'>
-          <FaRegHandshake />
-        </div>
-        <div>{menuLinks[7].name}</div>
-      </div>
-
-      <div className='mb-10 flex items-center'>
-        <div className='mr-3'>
-          <TbBellRinging2 />
-        </div>
-        <div>{menuLinks[8].name}</div>
-      </div>
-
-      <div className='mb-10 flex items-center'>
-        <div className='mr-3'>
-          <VscGear />
-        </div>
-        <div>{menuLinks[9].name}</div>
-      </div>
     </div>
   );
 };

@@ -9,11 +9,11 @@ interface Props {
 
 const InputText = ({ onChangeHandle, value, type, icon }: Props) => {
   return (
-    <div className="bg-[#E8E7E8] p-2 rounded md:max-w-md">
-      <div className="flex items-center gap-3">
+    <div className='bg-[#E8E7E8] p-2 rounded md:max-w-md'>
+      <div className='flex items-center gap-3'>
         {icon}
         <input
-          className="w-[100%] bg-[#E8E7E8] outline-none"
+          className='w-[100%] bg-[#E8E7E8] outline-none'
           type={type}
           value={value}
           onChange={(e) => onChangeHandle(e.target.value)}

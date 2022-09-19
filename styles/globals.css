@@ -24,3 +24,16 @@ a {
   -webkit-box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
 }
+
+.table-actxa td{
+ border-top: 1px solid #D2D3D4;
+ border-bottom: 1px solid #D2D3D4;
+}
+
+.table-actxa td:first-child{
+  border-left: 1px solid #D2D3D4;
+}
+
+.table-actxa td:last-child{
+  border-right: 1px solid #D2D3D4;
+}
