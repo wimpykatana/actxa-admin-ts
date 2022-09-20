@@ -47,7 +47,7 @@ const menuLinks = [
 
 export const Logout = () => {
   return (
-    <div className='absolute bottom-0 left-0 pl-10 p-5 w-3/12 bg-[#002245] flex items-center'>
+    <div className='absolute bottom-0 left-0 pl-10 p-5 w-[20%] bg-[#002245] flex items-center'>
       <div className='mr-3'>
         <FiLogOut />
       </div>
@@ -58,7 +58,7 @@ export const Logout = () => {
 
 const Sidebar = () => {
   return (
-    <div className='hidden h-screen overflow-y-scroll scrollbar-hide bg-[#002245] text-white pl-10 pt-5 pb-[120px] md:block md:w-3/12'>
+    <div className='hidden h-screen overflow-y-scroll scrollbar-hide bg-[#002245] text-white pl-10 pt-5 pb-[120px] md:block md:w-[20%]'>
       {menuLinks.map((item) => (
         <div key={item.id} className='mb-10 flex items-center'>
           <div className='mr-3'>{item.icon}</div>

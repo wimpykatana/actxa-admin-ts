@@ -6,9 +6,19 @@ interface Props {
     tabelHeader: string[];
     tableContent: any;
   };
+  name: string;
+  headerColor: string;
+  showPagging?: boolean;
+  showTotalItem?: boolean;
 }
 
-const Table = ({ value }: Props) => {
+const Table = ({
+  value,
+  name,
+  headerColor,
+  showPagging = true,
+  showTotalItem = false,
+}: Props) => {
   const [page, setPage] = useState<number>(0);
   const [totalPage, setTotalPage] = useState<number>(value.tableContent.length);
 
@@ -32,27 +42,39 @@ const Table = ({ value }: Props) => {
     }
   };
 
+  const pageJumpTo = (val: number) => {
+    setPage(val);
+  };
+
   return (
     <>
-      <p>
-        Showing{' '}
-        <span className='font-bold'>
-          {page === 0 ? page + 1 : (page + 1) * 10 - 9}-
-          {page === 0
-            ? '10'
-            : (page + 1) * 10 > value.tableContent.length
-            ? value.tableContent.length
-            : (page + 1) * 10}
-        </span>{' '}
-        of {value.tableContent.length} Companies
-      </p>
+      {showTotalItem && (
+        <p>
+          Showing{' '}
+          <span className='font-bold'>
+            {page === 0 ? page + 1 : (page + 1) * 10 - 9}-
+            {page === 0
+              ? value.tableContent.length < 10
+                ? value.tableContent.length
+                : '10'
+              : (page + 1) * 10 > value.tableContent.length
+              ? value.tableContent.length
+              : (page + 1) * 10}
+          </span>{' '}
+          of {value.tableContent.length} {name}
+        </p>
+      )}
+
       <div className='w-[100%] overflow-hidden'>
-        <div className='overflow-x-scroll py-10'>
-          <table className='table-actxa styles.table-actxa border-separate border-spacing-y-1'>
-            <thead className='bg-[#728493] text-white'>
-              <tr className='py-1 border'>
+        <div className='overflow-x-scroll py-5'>
+          <table className='table-actxa border-separate border-spacing-y-1'>
+            <thead
+              className='text-white'
+              style={{ backgroundColor: headerColor }}
+            >
+              <tr className='border'>
                 {value.tabelHeader.map((item, i) => (
-                  <th key={`table-${i}`} className='px-5 min-w-[200px]'>
+                  <th key={`table-${i}`} className='px-1 py-2 min-w-[200px]'>
                     {item}
                   </th>
                 ))}
@@ -65,57 +87,28 @@ const Table = ({ value }: Props) => {
                     i >= (page === 0 ? page : page * 10) &&
                     i <= (page === 0 ? page + 10 - 1 : (page + 1) * 10 - 1)
                 )
-                .map((item: any) => (
-                  <tr key={item.no}>
-                    <td className='text-center py-5'>{item.no}</td>
-                    <td className='text-center'>{item.company}</td>
-                    <td className='text-center'>{item.total}</td>
-                    <td className='text-center'>{item.monthlyTopic}</td>
-                    <td className='text-center'>{item.syncingStatus}</td>
-                    <td className='text-center'>{item.groupChallenge}</td>
-                    <td className='text-center'>{item.individualChallenge}</td>
-                    <td className='text-center'>{item.bonusActivityBased}</td>
-                    <td className='text-center'>{item.bonusActivityHLS}</td>
-                    <td className='text-center'>
-                      {item.bonusActivityContentBased1}
-                    </td>
-                    <td className='text-center'>
-                      {item.bonusActivityContentBased2}
-                    </td>
-                    <td className='text-center'>
-                      {item.bonusActivityContentBased3}
-                    </td>
-                    <td className='text-center'>
-                      {item.bonusActivityContentBased4}
-                    </td>
-                    <td className='text-center'>
-                      {item.bonusActivityContentBased5}
-                    </td>
-                    <td className='text-center'>
-                      {item.groupChallengeWinner1}
-                    </td>
-                    <td className='text-center'>
-                      {item.groupChallengeWinner2}
-                    </td>
-                    <td className='text-center'>
-                      {item.groupChallengeWinner3}
-                    </td>
-                    <td className='text-center'>{item.groupChallengeLeader}</td>
-                    <td className='text-center'>{item.preTopicSurvery}</td>
-                    <td className='text-center'>{item.postTopicSurvery}</td>
-                    <td className='text-center'>{item.updatedOn}</td>
+                .map((item: any, i: number) => (
+                  <tr key={i}>
+                    {item.map((value: any, i: number) => (
+                      <td key={i} className='text-center py-5'>
+                        {value}
+                      </td>
+                    ))}
                   </tr>
                 ))}
             </tbody>
           </table>
         </div>
       </div>
-      <Pagination
-        pageFoward={pageFowardFunc}
-        pageBackward={pageBackwardFunc}
-        totalPage={totalPage}
-        currPage={page}
-      />
+      {showPagging && (
+        <Pagination
+          pageFoward={pageFowardFunc}
+          pageBackward={pageBackwardFunc}
+          pageJump={pageJumpTo}
+          totalPage={totalPage}
+          currPage={page}
+        />
+      )}
     </>
   );
 };
