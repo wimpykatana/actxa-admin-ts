@@ -2,18 +2,18 @@ import React from 'react';
 import Table from '../../components/module/table';
 
 const tableVal = {
-  tabelHeader: ['No', 'System Generated Items', 'Points Awarded By'],
+  tabelHeader: ['No', 'System Generated Items', 'Points Awarded By', ''],
   tableContent: [
-    ['1', 'Monthly Topic', 'System'],
-    ['2', 'Syncing Status ', 'System'],
+    ['1', 'Monthly Topic', 'System', ''],
+    ['2', 'Syncing Status ', 'System', '+'],
   ],
 };
 
 const tableValDua = {
-  tabelHeader: ['No', 'User Created Items', 'Points Awarded By'],
+  tabelHeader: ['No', 'User Created Items', 'Points Awarded By', ''],
   tableContent: [
-    ['1', 'Monthly Topic', 'System'],
-    ['2', 'Syncing Status ', 'System'],
+    ['1', 'Monthly Topic', 'System', '+'],
+    ['2', 'Syncing Status ', 'System', ''],
   ],
 };
 

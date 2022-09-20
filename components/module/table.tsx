@@ -74,7 +74,7 @@ const Table = ({
             >
               <tr className='border'>
                 {value.tabelHeader.map((item, i) => (
-                  <th key={`table-${i}`} className='px-1 py-2 min-w-[200px]'>
+                  <th key={`table-${i}`} className='px-10 py-5'>
                     {item}
                   </th>
                 ))}
